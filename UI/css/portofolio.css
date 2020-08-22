@@ -1,0 +1,245 @@
+    .portofolio-container {
+        background-color: none;
+        color: #2F303a;
+    }
+    
+    @media only screen and (min-width: 1000px) {
+        .portofolio-container {
+            width: 100%;
+            height: 650px;
+        }
+    }
+    
+    .portofolio-cards h1 {
+        color: #2F303a;
+            font-size: 3rem;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            padding: 30px 30px 30px;
+    }
+    
+    .portofolio-main-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-x: auto;
+    }
+    
+    .portofolio-cards {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px 50px;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0px 50px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    
+    h4 {
+        color: #1D93EE;
+    }
+    
+    .portofolio-card {
+        margin: 50px auto;
+        min-width: 356px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(50, 50, 50, 0.2);
+        text-align: center;
+        border-radius: 10px;
+    }
+    
+  
+    
+    .portofolio-card-img img {
+        width: 70%;
+        max-height: 250px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .portofolio-card-tags {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
+    
+    .portofolio-card .portofolio-card-img .portofolio-card-tags li {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: grey;
+        background-color: orange;
+        padding: 5px 15px;
+        border-radius: 30px;
+        margin-right: 12px;
+    }
+    
+    .portofolio-card-info {
+        padding: 33px 30px 30px 30px;
+    }
+    
+    .portofolio-card-title {
+        color: #1D93EE;
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: bold;
+    }
+    
+    .card-meta-data {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .portofolio-card-info p {
+        color: grey;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 400;
+        margin: 18px 0 24px;
+    }
+    
+    .portofolio-card-info .portofolio-card-btn {
+        color: white;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: bold;
+        background-color: #1D93EE;
+        padding: 14px 42px;
+        border-radius: 60px;
+        display: inline-block;
+    }
+    
+    .portofolio-card-btn {
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+    
+    a.cta-btn {
+        background-color: #f0f0f0;
+    }
+    /* Slideshow container */
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    /* Hide the images by default */
+    
+    .mySlides {
+        display: none;
+    }
+    /* Next & previous buttons */
+    
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+    /* Position the "next button" to the right */
+    
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    /* On hover, add a black background color with a little bit see-through */
+    
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Fading animation */
+    
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @media screen and (max-width: 1024px) {
+        .portofolio-card-img img {
+            width: 60%;
+            max-height: 200px;
+        }
+        .portofolio-card {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+        .portofolio-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            grid-gap: 100px 100px;
+            padding: 50px 0px 50px;
+            justify-content: center;
+        }
+           .portofolio-cards h1 {
+
+            font-size: 2rem;
+            padding: 50px 10px 0px;
+    }
+        .portofolio-card-img img {
+            width: 60%;
+            max-height: 200px;
+        }
+        .portofolio-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 1rem;
+        }
+        .portofolio-card-info p {
+            font-size: 16px;
+        }
+    }
