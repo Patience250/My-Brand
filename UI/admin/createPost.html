@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/post.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" 
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <title>Add post</title>
+</head>
+<body>
+ <nav>
+       <i class="fa fa-bars bars" aria-hidden="true"></i>
+    <ul class="nav-links">
+      <a href="#" class="link">Dashboard</a>
+      <a href="../admin/createPost.html" class="link" >Add</a>
+      <a href="../admin/queries.html" class="link">Queries</a>
+    </ul>
+   </nav>
+  <div class="create-post-container">
+  <form id="data-form" name="dataForm"  class="create-post-form" >
+  <h2>Add post</h2>
+        <input type="text" placeholder="Title" id="post-title" name="title" autocomplete="off"> <br/><br/>
+        <textarea placeholder="Body" id="post-message" name="message"></textarea><br/><br/>
+           <input type="file" id="post-image" name="image" ></input><br/><br/>
+        <button type="submit" className="btn" >Add</button>
+    </form>
+  </div>
+                
+<script src="../js/post.js">
+</script>
+</body>
+
+</html
