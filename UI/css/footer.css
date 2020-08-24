@@ -1,6 +1,21 @@
 .footer-container {
-    background-color: #23415c;
-    color: #fff;
+    background-color: #fff;
+    color: #23415c;
+}
+
+.icon {
+    color: #23415c;
+    font-size: 1.8rem;
+    transition: .10s;
+}
+
+.icon:hover {
+    padding: 2px;
+}
+
+.footer-container p {
+    font-size: 1.2rem;
+    padding: 50px 100px 50px;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -10,40 +25,29 @@
     }
 }
 
-.footer-container h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    padding: 50px 30px 30px;
-}
-
-.footer-main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr;
     padding: 50px 0px 50px;
 }
 
-.card {
-    width: 200px;
+.footer-card {
+    width: 100%;
     height: 200px;
     background-color: transparent;
     font-size: 0.8rem;
     text-align: center;
     display: flex;
     text-transform: capitalize;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.footer-container h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding: 50px 0px 100px;
+    text-align: center;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
@@ -51,11 +55,17 @@
         display: grid;
         grid-template-columns: 1fr;
         align-items: center;
-        padding: 0px 0px 0px;
+        padding: 30px 10px 30px;
     }
-    .card {
+    .footer-card {
         width: 100%;
         height: 200px;
         font-size: 1rem;
+    }
+    .footer-container p {
+        font-size: 1rem;
+    }
+    .icon {
+        font-size: 1.5rem;
     }
 }
