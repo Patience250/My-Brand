@@ -1,0 +1,146 @@
+  /* nav bar */
+  
+  .nav-links {
+      display: flex;
+      justify-content: center;
+      transition: .10s;
+      max-height: 200px;
+  }
+  
+  nav ul a {
+      padding: 20px;
+      padding-right: 50px;
+      text-decoration: none;
+      list-style: none;
+      color: #2F303a;
+      transition: .3s;
+      font-size: 17px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      transition: .10s;
+      font-weight: 500;
+  }
+  
+  .change-navbar {
+      background-color: #2F303a;
+      margin-top: 50px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+  }
+  
+  .change-nav-links {
+      color: #fff;
+  }
+  
+  nav ul a:hover {
+      background-color: lightgray;
+  }
+  
+  nav .bars {
+      display: none;
+  }
+  
+  @media screen and (max-width: 992px) {
+      nav ul a {
+          padding: 20px;
+          padding-right: 50px;
+          text-decoration: none;
+          list-style: none;
+          color: #2F303a;
+          transition: .3s;
+          font-size: 20px;
+          font-weight: 400;
+      }
+  }
+  
+  @media screen and (max-width: 768px) {
+      .nav-links {
+          display: flex;
+          height: 400px;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          display: none;
+      }
+      .show-links {
+          display: block;
+      }
+      nav ul a {
+          display: block;
+      }
+      nav .bars {
+          display: block;
+          font-size: 2rem;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          cursor: pointer;
+      }
+  }
+  /* end of navbar section */
+  
+  .queries-container {
+      margin: 100px 100px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .queries-container h1 {
+      font-size: 3rem;
+  }
+  
+  .single-query {
+      max-width: 60%;
+      max-height: 200px;
+      border-radius: 20px;
+      overflow: scroll;
+      margin: 50px;
+      box-shadow: 0 0 20px gray;
+  }
+  
+  .query-header {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .date p {
+      color: grey;
+  }
+  
+  .sender-name,
+  .sender-email {
+      font-size: 0.8rem;
+  }
+  
+  .sender-name {
+      font-size: 2rem;
+      margin: 0px;
+  }
+  
+  .query-message {
+      font-size: 18px;
+      margin: 15px 0px 0px;
+      line-height: 24px;
+  }
+  
+  @media screen and (max-width: 768px) {
+      .queries-container h1 {
+          font-size: 2rem;
+      }
+      .single-query {
+          min-width: 100%;
+          max-height: 300px;
+      }
+      .query-message {
+          line-height: 20px;
+      }
+  }
+  
+  @media screen and (max-width: 500px) {
+      .single-query {
+          min-width: 100%
+      }
+  }
