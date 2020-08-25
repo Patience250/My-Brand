@@ -99,7 +99,89 @@
             line-height: 24px;
         }
         
+        .comments-container {
+            margin: 100px 100px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .comments-container h1 {
+            font-size: 3rem;
+        }
+        
+        .single-comment {
+            max-width: 80%;
+            max-height: 200px;
+            border-radius: 15px;
+            overflow: scroll;
+            box-shadow: 0 0 20px gray;
+            padding: 5px 15px 5px;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .date p {
+            color: grey;
+        }
+        
+        .sender-name,
+        .sender-email {
+            font-size: 0.8rem;
+            color: #2F303a;
+            line-height: 24px;
+        }
+        
+        .sender-name {
+            font-size: 2rem;
+            margin: 0px;
+        }
+        
+        .comment-message {
+            font-size: 18px;
+            margin: 15px 0px 0px;
+            line-height: 24px;
+        }
+        
+        .comments-section {
+            text-align: justify;
+            padding: 20px 30px 20px;
+            margin: 50px;
+        }
+        
+        .contact-form {
+            background: transparent;
+        }
+        
+        .comment-form input,
+        textarea,
+        button {
+            outline: none;
+            border: 1px solid;
+        }
+        
+        .comment-form textarea {
+            padding: 30px;
+        }
+        
+        .comment-form button {
+            background-color: #1D93EE;
+            color: #fff;
+            cursor: pointer;
+            transition: .5s;
+        }
+        
+        .comment-form button:hover {
+            background-color: #1D93AA;
+        }
+        
         @media only screen and (min-width: 1000px) {
+            .comments-section h1 {
+                color: #2F303a;
+            }
             .blogdetails {
                 width: 100%;
                 height: 100%;
@@ -111,6 +193,9 @@
             .blogdetails {
                 width: 100%;
                 height: 1000px;
+            }
+            .single-comment {
+                min-width: 60%;
             }
         }
         
@@ -209,58 +294,15 @@
         }
         /* end of blogdetails section */
         
-        .comments-container {
-            margin: 100px 100px 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .comments-container h1 {
-            font-size: 3rem;
-        }
-        
-        .single-comment {
-            max-width: 60%;
-            max-height: 200px;
-            border-radius: 20px;
-            overflow: scroll;
-            margin: 50px;
-            box-shadow: 0 0 20px gray;
-        }
-        
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .date p {
-            color: grey;
-        }
-        
-        .sender-name,
-        .sender-email {
-            font-size: 0.8rem;
-        }
-        
-        .sender-name {
-            font-size: 2rem;
-            margin: 0px;
-        }
-        
-        .comment-message {
-            font-size: 18px;
-            margin: 15px 0px 0px;
-            line-height: 24px;
-        }
-        
         @media screen and (max-width: 768px) {
             .comments-container h1 {
                 font-size: 2rem;
             }
+            .comments-section {
+                padding: 20px 10px 20px;
+            }
             .single-comment {
-                min-width: 100%;
-                max-height: 300px;
+                max-width: 70%;
             }
             .comment-message {
                 line-height: 20px;
@@ -290,12 +332,11 @@
         textarea,
         button {
             padding: 12px;
-            width: 60%;
+            width: 100%;
             outline: none;
             font-size: 0.8rem;
-            color: #555;
             font-family: 'poppins', sans-serif;
-            margin-top: 50px;
+            margin-top: 20px;
             border-radius: 5px;
         }
         
