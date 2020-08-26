@@ -59,13 +59,19 @@
         background: transparent;
         width: 100%;
         padding: 0px 0px 0px;
-        width: 100%;
+    }
+    
+    .contact-form .feedback {
+        font-size: 14px;
+        color: #3C951D;
+        padding: 20px;
     }
     
     .contact-form h4 {
         font-size: 1.5rem;
         text-transform: none;
         padding: 0px 0px 0px;
+        color: #fff;
     }
     
     .contact-form input,
@@ -78,8 +84,18 @@
         border: none;
         color: #555;
         font-family: 'poppins', sans-serif;
-        margin-top: 50px;
+        margin-top: 20px;
         border-radius: 5px;
+    }
+    
+    .contact-form button {
+        background-color: #1D93EE;
+        transition: .5s;
+        cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+        background-color: #1D93AA;
     }
     
     @media screen and (max-width: 768px) {
@@ -90,12 +106,17 @@
             padding: 0px 0px 0px;
         }
         .contact-container h1 {
-        font-size: 2rem;
-        padding: 10px 0px 10px;
-    }
+            font-size: 2rem;
+            padding: 10px 0px 10px;
+        }
         .card {
             width: 100%;
             height: 200px;
             font-size: 1rem;
+        }
+        .contact-form input,
+        textarea,
+        button {
+            width: 100%;
         }
     }
