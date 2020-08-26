@@ -14,9 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const db = firebase.firestore()
 
-
-
-
+// declaration of variables 
 let homeSection = document.querySelector('#home-section')
 let navBar = document.querySelector('.nav-links')
 let nav = document.querySelector('nav')
@@ -24,9 +22,8 @@ let navLinks = document.querySelectorAll('a')
 const bars = document.querySelector('.bars')
 const contactForm = document.querySelector('.contact-form')
 const feedBack = document.querySelector('.feedback')
-let contactName = document.querySelector('.name')
-let email = document.querySelector('.email')
-let message = document.querySelector(".message")
+const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+
 window.addEventListener("scroll", () => {
 
         console.log(window.pageYOffset)
@@ -49,7 +46,6 @@ bars.addEventListener('click', () => {
     navBar.classList.toggle('show-links')
 
 })
-
 
 
 
@@ -115,29 +111,57 @@ function showBlogSlides(n) {
 
 
 // handling contact form data
-
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault()
-        // get contact form data
-
-    contactName = contactName.value
-    email = email.value
-    message = message.value
-        //   create contact message in firebase database
-    if (contactName.length < 3) {
-        alert("Name should be at least 3 characters long.")
-    } else if (message.length < 10) {
-        alert("Message can't be less than 10 words")
-    } else {
-        db.collection('contacts').add({
-            name: contactName,
-            email: email,
-            message: message,
-        })
-        contactForm.reset()
-        feedBack.innerHTML = "Thanks for your message."
-    }
-
-
-
+    validateInputs()
 })
+
+function validateInputs() {
+    let contactName = document.querySelector('.name')
+    let email = document.querySelector('.email')
+    let message = document.querySelector(".message")
+    let alertMessage = document.querySelector(".alert-message")
+    let errorMessage = document.querySelector(".error-message")
+    try {
+        // get contact form data
+        contactName = contactName.value.trim()
+        email = email.value.trim()
+        message = message.value.trim()
+            // form fields validation 
+        if (contactName.length < 3 && contactName.length > 0) {
+
+            errorMessage.style.display = "block"
+            errorMessage.innerHTML = "Minimum 3 characters required for name"
+            setTimeout(() => {
+                errorMessage.style.display = "none"
+                errorMessage.innerHTML = "none"
+
+            }, 5000)
+        } else if (message.length < 10 && message.length > 0) {
+            errorMessage.style.display = "block"
+            errorMessage.innerHTML = "Minimum 10 characters required for message"
+            setTimeout(() => {
+                errorMessage.style.display = "none"
+                errorMessage.innerHTML = ""
+            }, 5000)
+        } else {
+
+            // create contact message in firebase database
+            db.collection('contacts').add({
+                name: contactName,
+                email: email,
+                message: message,
+            })
+            contactForm.reset()
+            alertMessage.style.display = "block"
+            setTimeout(() => {
+                alertMessage.style.display = ""
+            }, 5000)
+
+        }
+
+    } catch (error) {
+
+
+    }
+}

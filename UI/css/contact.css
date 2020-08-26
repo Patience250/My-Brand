@@ -61,17 +61,37 @@
         padding: 0px 0px 0px;
     }
     
-    .contact-form .feedback {
-        font-size: 14px;
-        color: #3C951D;
-        padding: 20px;
-    }
-    
     .contact-form h4 {
         font-size: 1.5rem;
         text-transform: none;
         padding: 0px 0px 0px;
         color: #fff;
+    }
+    
+    .alert-message {
+        color: #fff;
+        font-size: 18px;
+        background-color: #79c879;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-transform: initial;
+        display: none;
+        transition: .10s;
+    }
+    
+    .error-message {
+        color: #fff;
+        font-size: 18px;
+        background-color: #E13729;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-transform: initial;
+        display: none;
+        transition: .10s;
+    }
+    
+    .error {
+        border: 10rem #E13729 solid;
     }
     
     .contact-form input,
@@ -92,6 +112,8 @@
         background-color: #1D93EE;
         transition: .5s;
         cursor: pointer;
+        color: #fff;
+        text-transform: uppercase;
     }
     
     .contact-form button:hover {
