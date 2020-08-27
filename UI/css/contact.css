@@ -90,8 +90,8 @@
         transition: .10s;
     }
     
-    .error {
-        border: 10rem #E13729 solid;
+    .name.error {
+        border: 2px #E13729 solid;
     }
     
     .contact-form input,

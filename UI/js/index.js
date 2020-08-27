@@ -128,19 +128,28 @@ function validateInputs() {
         email = email.value.trim()
         message = message.value.trim()
             // form fields validation 
-        if (contactName.length < 3 && contactName.length > 0) {
 
+
+        if (contactName.length < 3 && contactName.length > 0 || contactName === "") {
             errorMessage.style.display = "block"
             errorMessage.innerHTML = "Minimum 3 characters required for name"
-            setTimeout(() => {
+            return setTimeout(() => {
                 errorMessage.style.display = "none"
                 errorMessage.innerHTML = "none"
+                contactName.classList.remove('.error')
 
             }, 5000)
-        } else if (message.length < 10 && message.length > 0) {
+        } else if (message.length < 10 && message.length > 0 || message === "") {
             errorMessage.style.display = "block"
             errorMessage.innerHTML = "Minimum 10 characters required for message"
-            setTimeout(() => {
+            return setTimeout(() => {
+                errorMessage.style.display = "none"
+                errorMessage.innerHTML = ""
+            }, 5000)
+        } else if (!isEmail(email)) {
+            errorMessage.style.display = "block"
+            errorMessage.innerHTML = "Invalid email"
+            return setTimeout(() => {
                 errorMessage.style.display = "none"
                 errorMessage.innerHTML = ""
             }, 5000)
@@ -164,4 +173,8 @@ function validateInputs() {
 
 
     }
+}
+
+function isEmail(email) {
+    return emailRegex.test(email)
 }
