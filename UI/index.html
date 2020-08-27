@@ -23,13 +23,13 @@
     </div>
     <nav>
        <i class="fa fa-bars bars" aria-hidden="true"></i>
-    <ul class="nav-links">
+     <ul class="nav-links">
       <a href="#" class="link">HOME</a>
       <a href="#about-us" class="link" >ABOUT</a>
       <a href="#blog-section" class="link">BLOG</a>
-      <a href="" class="link">PORTOFOLIO</a>
+      <a href="#portofolio-section" class="link">PORTOFOLIO</a>
       <a href="#cantact-me-section" class="link">CONTACT</a>
-
+      <a href="./admin/login.html" class="link">LOGIN</a>
     </ul>
    </nav>
     <div class="about-container" id="about-us">
@@ -58,7 +58,7 @@
 
 
 <!-- Slideshow container -->
-<div class="slideshow-container portofolio-cards">
+<div class="slideshow-container portofolio-cards" id="portofolio-section">
 <h1> My work</h1>
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade ">
@@ -123,7 +123,7 @@ Front-end Developer. By early 2020, Pet Plate had successfully raised a total in
 
 
 <!-- blog container -->
-<div class="slideshow-container blog-cards">
+<div class="slideshow-container blog-cards" id="blog-section">
 <h1> My blog</h1>
   <!-- Full-width images with number and caption text -->
   <div class="myBlogSlides fade ">
@@ -142,7 +142,7 @@ Front-end Developer. By early 2020, Pet Plate had successfully raised a total in
 <h4 class="blog-card-title">Post one</h4>
 <p>At one time or another, as a developer, we’ve all found ourselves hopelessly stuck on a coding issue we had to solve. Desperately searching 
 stackoverflow on the off chance that someone might have the exact issue that you do (they’ dont).</p>
-<a href ="" class="blog-card-btn">Read more</a>
+<a href ="./pages/blogdetails.html" class="blog-card-btn">Read more</a>
 </div>
 </div>
 
@@ -164,7 +164,7 @@ stackoverflow on the off chance that someone might have the exact issue that you
 <h4 class="blog-card-title">Post two</h4>
 <p>At one time or another, as a developer, we’ve all found ourselves hopelessly stuck on a coding issue we had to solve. Desperately searching 
 stackoverflow on the off chance that someone might have the exact issue that you do (they’ dont).</p>
-<a href ="" class="blog-card-btn">Read more</a>
+<a href ="./pages/blogdetails.html" class="blog-card-btn">Read more</a>
 </div>
 </div>
   </div>
@@ -184,7 +184,7 @@ stackoverflow on the off chance that someone might have the exact issue that you
 <h4 class="blog-card-title">Post three</h4>
 <p>At one time or another, as a developer, we’ve all found ourselves hopelessly stuck on a coding issue we had to solve. Desperately searching 
 stackoverflow on the off chance that someone might have the exact issue that you do (they’ dont).</p>
-<a href ="" class="blog-card-btn">Read more</a>
+<a href ="./pages/blogdetails.html" class="blog-card-btn">Read more</a>
 </div>
 </div>
 
@@ -197,7 +197,7 @@ stackoverflow on the off chance that someone might have the exact issue that you
 <br>
 
    
-    <div class="contact-container" id="cantact-me-section">
+  <div class="contact-container" id="cantact-me-section">
           <h1>contact<h1>
           <div class="cantact-main-content">
           <div class="contact-cards">
@@ -217,17 +217,22 @@ stackoverflow on the off chance that someone might have the exact issue that you
       
           <form class="contact-form">
           <h4>Leave  a message</h4>
-          <input type="text" placeholder="Enter name"/>
-          <input type="text" placeholder="Enter email"/>
-          <textarea  placeholder="Enter message"></textarea>
+          <h6 class="alert-message">Your message has been sent</h6>
+          <h6 class="error-message"></h6>
+          <input type="text" placeholder="Enter name" class="name" name="name" />
+          <input type="text" placeholder="Enter email" class="email " name="email" />
+          <textarea  placeholder="Enter message" class="message " name="message" ></textarea>
           <button >Send</button>
           </form>
           </div>
     </div>
 </body>
 
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
 <script src="js/index.js">
-
-
 </script>
 </html
