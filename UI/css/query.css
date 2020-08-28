@@ -14,7 +14,7 @@
       list-style: none;
       color: #2F303a;
       transition: .3s;
-      font-size: 17px;
+      font-size: 15px;
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
       transition: .10s;
@@ -57,7 +57,7 @@
   @media screen and (max-width: 768px) {
       .nav-links {
           display: flex;
-          height: 400px;
+          height: 300px;
           flex-direction: column;
           flex-wrap: wrap;
           justify-content: center;
@@ -89,16 +89,19 @@
   }
   
   .queries-container h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      text-transform: uppercase;
   }
   
   .single-query {
-      max-width: 60%;
+      width: 40%;
       max-height: 200px;
       border-radius: 20px;
-      overflow: scroll;
-      margin: 50px;
+      overflow: auto;
+      margin: 10px;
+      padding: 20px 30px 20px;
       box-shadow: 0 0 20px gray;
+      line-height: 25px;
   }
   
   .query-header {
@@ -108,22 +111,26 @@
   
   .date p {
       color: grey;
+      float: right;
   }
   
-  .sender-name,
   .sender-email {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
   }
   
   .sender-name {
-      font-size: 2rem;
-      margin: 0px;
+      font-size: 1.5rem;
+      margin-bottom: 0px;
+      color: black;
+      font-weight: bold;
   }
   
   .query-message {
-      font-size: 18px;
+      font-size: 20px;
       margin: 15px 0px 0px;
       line-height: 24px;
+      text-align: justify;
+      color: #110d0d;
   }
   
   @media screen and (max-width: 768px) {
@@ -132,15 +139,32 @@
       }
       .single-query {
           min-width: 100%;
-          max-height: 300px;
+          max-height: 200px;
+      }
+      .sender-name {
+          font-size: 1.2rem;
       }
       .query-message {
+          font-size: 18px;
           line-height: 20px;
       }
   }
   
   @media screen and (max-width: 500px) {
+      .queries-container {
+          margin: 0px;
+      }
+      .query-header {
+          display: flex;
+          flex-direction: column-reverse;
+      }
+      .queries-container h1 {
+          font-size: 1.5rem;
+      }
       .single-query {
-          min-width: 100%
+          min-width: 70%;
+      }
+      .query-message {
+          text-align: start;
       }
   }
