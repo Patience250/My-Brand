@@ -14,51 +14,102 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const db = firebase.firestore()
 
+
 //   tracking user auth status
 auth.onAuthStateChanged(user => {
     console.log(user)
 })
 
-
-
-
 //   get data from firebase 
 
-// show and hide nav links
-const loggedInLinks = document.querySelectorAll('.logged-in')
-const loggedOutLinks = document.querySelectorAll('.logged-out')
-const showAndHideNavLinks = (user) => {
-        if (user) {
-            loggedInLinks.forEach(link => link.style.display = 'block')
-            loggedOutLinks.forEach(link => link.style.display = 'none')
-        } else {
-            loggedInLinks.forEach(link => link.style.display = 'none')
-            loggedOutLinks.forEach(link => link.style.display = 'block')
-        }
-    }
-    //   set and display firebase data
-const contactList = document.querySelector(".main-content")
+
+const contactList = document.querySelector(".queries-container")
 const queryMessage = document.querySelector(".query-message")
 const singleQuery = document.querySelector(".single-query")
-const setContacts = (doc) => {
+const senderName = document.querySelector(".sender-name")
+const senderEmail = document.querySelector(".sender-email")
 
-    singleQuery.setAttribute('data-id', doc.id)
-    queryMessage.innerHTML = doc.data().message
-    singleQuery.appendChild(queryMessage)
+const setContacts = (doc) => {
+    let div = document.createElement('div')
+    let divSenderName = document.createElement('div')
+    let divSenderEmail = document.createElement('div')
+    let divMessage = document.createElement('div')
+    let divDate = document.createElement('div')
+    let parDate = document.createElement('p')
+    let divAuthor = document.createElement('div')
+    div.setAttribute('data-id', doc.id)
+    div.classList.add('single-query')
+    divDate.classList.add("date")
+    parDate.textContent = doc.data().date
+    divAuthor.classList.add("author")
+    divSenderName.textContent = doc.data().name
+    divSenderName.classList.add('sender-name')
+    divSenderEmail.textContent = doc.data().email
+    divSenderEmail.classList.add('sender-email')
+    divMessage.textContent = doc.data().message
+    divMessage.classList.add('query-message')
+    divAuthor.appendChild(divSenderName)
+    divAuthor.appendChild(divSenderEmail)
+    divDate.appendChild(parDate)
+    div.appendChild(divDate)
+    div.appendChild(divAuthor)
+    div.appendChild(divMessage)
+    contactList.appendChild(div)
 }
 
-// retrieve queries from firebase collections
+// retrieve queries from firebase collections based on authentication
 auth.onAuthStateChanged(user => {
-    if (user) {
-        db.collection('contacts').get().then(snapshot => {
+    // if (user) {
+    //     db.collection('contacts').get().then(snapshot => {
+    //         snapshot.docs.forEach(doc => {
+    //             setContacts(doc)
+    //             showAndHideNavLinks(user);
+    //         })
+
+    //     })
+
+    db.collection('contacts').get().then(snapshot => {
+
             snapshot.docs.forEach(doc => {
                 setContacts(doc)
-                showAndHideNavLinks(user);
+
             })
 
         })
-    } else {
-        showAndHideNavLinks()
-        setContacts([])
-    }
+        //    else {
+        //         setContacts([])
+        //     }
+})
+
+
+
+// Navbar
+
+let homeSection = document.querySelector('#home-section')
+let navBar = document.querySelector('.nav-links')
+let nav = document.querySelector('nav')
+let navLinks = document.querySelectorAll('a')
+const bars = document.querySelector('.bars')
+const contactForm = document.querySelector('.contact-form')
+window.addEventListener("scroll", () => {
+
+        console.log(window.pageYOffset)
+        if (window.pageYOffset >= 540) {
+            nav.classList.add('change-navbar')
+            navLinks.forEach(navLink => {
+                navLink.classList.add('change-nav-links')
+                bars.style.color = "white"
+            })
+        } else {
+            nav.classList.remove('change-navbar')
+            navLinks.forEach(navLink => {
+                navLink.classList.remove('change-nav-links')
+                bars.style.color = "black"
+            })
+        }
+    })
+    // show & hide nav links
+bars.addEventListener('click', () => {
+    navBar.classList.toggle('show-links')
+
 })
