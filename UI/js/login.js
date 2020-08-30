@@ -23,6 +23,7 @@ auth.onAuthStateChanged(user => {
 // login 
 
 const loginForm = document.querySelector('#loginform');
+const authErrorPar = document.querySelector('.auth-error')
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     //  grab user data
@@ -30,11 +31,18 @@ loginForm.addEventListener('submit', (e) => {
     const password = document.querySelector("#password").value
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         if (cred.user) {
-            window.location.href = "../admin/queries.html"
+            window.location.href = "../admin/index.html"
         } else {
             window.location.href = 'login.html'
         }
         loginForm.reset()
 
+    }).catch(error => {
+        authErrorPar.style.display = "block"
+        authErrorPar.innerHTML = error.message;
+        setTimeout(() => {
+            authErrorPar.innerHTML = "";
+            authErrorPar.style.display = "none"
+        }, 4000);
     })
 })
