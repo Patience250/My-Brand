@@ -18,24 +18,26 @@ body {
 }
 
 .login-form {
-   display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        width: 100%;
-        padding: 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 100%;
+    padding: 0px 0px 0px;
 }
-.login-form h2{
-    color:#fff;
-    text-transform:uppercase;
+
+.login-form h2 {
+    color: #fff;
+    text-transform: uppercase;
     padding: 0px 0px 20px;
-    font-size:2rem;
+    font-size: 2rem;
 }
+
 .login-form input,
 button {
     padding: 12px;
-    width: 60%;
+    width: 40%;
     outline: none;
     font-size: 0.8rem;
     border: none;
@@ -43,6 +45,7 @@ button {
     font-family: 'poppins', sans-serif;
     margin-top: 5px;
     border-radius: 5px;
+    transition: .5s;
 }
 
 .login-form button {
@@ -51,9 +54,28 @@ button {
     color: #fff;
     cursor: pointer;
     text-transform: uppercase;
-    transition: .5s;
 }
+
 .login-form button:hover {
     background-color: #1D93AA;
-     color: #ffff;
+    color: #ffff;
+}
+
+.auth-error {
+    color: #fff;
+    font-size: 15px;
+    background-color: #E13729;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: initial;
+    transition: .5s;
+    border: 2px #E13729 solid;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .login-form input,
+    button {
+        width: 60%;
+    }
 }
