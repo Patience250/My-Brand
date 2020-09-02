@@ -26,13 +26,11 @@ const blogForm = document.querySelector('#blog-form')
 let submitButton = document.querySelector("button")
 const feedBack = document.querySelector('.feedback')
 window.addEventListener("scroll", () => {
-
         console.log(window.pageYOffset)
         if (window.pageYOffset >= 100) {
             nav.classList.add('change-navbar')
             navLinks.forEach(navLink => {
                 navLink.classList.add('change-nav-links')
-
             })
         } else {
             nav.classList.remove('change-navbar')
