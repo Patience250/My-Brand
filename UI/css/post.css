@@ -52,6 +52,32 @@ nav .bars {
     display: none;
 }
 
+.alert-message {
+    color: #fff;
+    font-size: 18px;
+    background-color: #79c879;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: initial;
+    display: none;
+    transition: .10s;
+}
+
+.error-message {
+    color: #fff;
+    font-size: 18px;
+    background-color: #E13729;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: initial;
+    display: none;
+    transition: .10s;
+}
+
+.name.error {
+    border: 2px #E13729 solid;
+}
+
 @media screen and (max-width: 992px) {
     nav ul a {
         padding: 20px;
@@ -143,6 +169,13 @@ textarea {
     cursor: pointer;
     text-transform: uppercase;
     transition: .5s;
+}
+
+.change-button button {
+    cursor: none;
+    opacity: 0.4;
+    color: #2F303a;
+    background-color: #fff;
 }
 
 .create-post-form button:hover {
