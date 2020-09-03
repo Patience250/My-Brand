@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" 
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <title>Admin page</title>
+</head>
+<body>
+  <nav>
+       <i class="fa fa-bars bars" aria-hidden="true"></i>
+    <ul class="nav-links">
+      <a href="#" class="link">Dashboard</a>
+      <a href="../admin/createPost.html" class="link" >Add</a>
+      <a href="../admin/queries.html" class="link">Queries</a>
+      <a href="" class="link logout">Log out</a>
+    </ul>
+   </nav>
+   <div class="summary-container" id="dasboard">
+    <div class="likes-container ">
+    <h1>Blog Likes</h1>
+    <i class="fas fa-heart blog-icon">105</i>
+    </div>
+    <div class="comments-container ">
+       <h1>Blog Comments</h1>
+     <i class="fas fa-comments">35</i>
+    </div>
+      
+    <div class="queries-container "><h1>Blog Queries</h1>
+      <a href="../admin/queries.html"> <i class="fas fa-envelope">40</i></a>
+    </div>
+    <div class="guest-container ">
+    <h1>Guests locations</h1>
+   <a href="../admin/guestlocations.html"> <i class="fas fa-map-marker-alt"></i></a>
+    </div>
+
+   </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+<script src="../js/admin.js">
+</script>
+</html
