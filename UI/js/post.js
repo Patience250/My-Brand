@@ -25,6 +25,7 @@ const bars = document.querySelector('.bars')
 const blogForm = document.querySelector('#blog-form')
 let submitButton = document.querySelector("button")
 const feedBack = document.querySelector('.feedback')
+const logoutLink = document.querySelector('.logout')
 window.addEventListener("scroll", () => {
         console.log(window.pageYOffset)
         if (window.pageYOffset >= 100) {
@@ -79,7 +80,6 @@ bars.addEventListener('click', () => {
 // handling contact form data
 blogForm.addEventListener('submit', (e) => {
     e.preventDefault()
-
     validateInputs()
 })
 
@@ -150,7 +150,8 @@ function validateInputs() {
                     db.collection('blog-posts').add({
                         title: blogTitle,
                         body: blogBody,
-                        blogImage: downloadURL
+                        blogImage: downloadURL,
+                        dateCreated: Date.now()
                     })
                     blogForm.reset()
                     submitButton.textContent = "add"
@@ -169,3 +170,23 @@ function validateInputs() {
 
     // form fields validation 
 }
+
+
+//   tracking user auth status
+auth.onAuthStateChanged(user => {
+    if (user) {
+        logoutLink.style.display = "block"
+    } else {
+        logoutLink.style.display = "none"
+        window.location.href = "login.html"
+    }
+})
+
+// log out
+logoutLink.addEventListener('click', (e) => {
+    e.preventDefault()
+    auth.signOut().then(() => {
+        window.location.href = 'login.html'
+        console.log("You have been logged out of the system. Hope to see you back.")
+    })
+})
