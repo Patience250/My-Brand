@@ -50,66 +50,6 @@ bars.addEventListener('click', () => {
 
 
 
-// Slides ---portofolio section
-
-
-const body = document.querySelector('body')
-body.addEventListener('load', () => {
-    console.log("Loadeds")
-})
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-}
-
-
-// Slides ---blog section
-
-
-var slideBlogIndex = 1;
-showBlogSlides(slideBlogIndex);
-
-// Next/previous controls
-function plusBlogSlides(n) {
-    showBlogSlides(slideBlogIndex += n);
-}
-
-// Thumbnail image controls
-function currentBlogSlide(n) {
-    showBlogSlides(slideBlogIndex = n);
-}
-
-function showBlogSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("myBlogSlides");
-    if (n > slides.length) { slideBlogIndex = 1 }
-    if (n < 1) { slideBlogIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideBlogIndex - 1].style.display = "block";
-}
-
-
 // handling contact form data
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -177,4 +117,148 @@ function validateInputs() {
 
 function isEmail(email) {
     return emailRegex.test(email)
+}
+
+
+
+
+//   get blogs from firebase 
+
+
+const blogList = document.querySelector(".blog-cards")
+const blogArrows = document.querySelectorAll(".blog-arrow")
+const blogLoader = document.querySelector(".loading-blogs")
+
+const setBlogs = (doc) => {
+    let mainDiv = document.createElement('div')
+    let div = document.createElement('div')
+    let headerBlogTitle = document.createElement('h4')
+    let divBlogImage = document.createElement('div')
+    let imageTag = document.createElement('img')
+    let parBlogBody = document.createElement('p')
+    let divBlogCardInfo = document.createElement('div')
+    let divCardMetaData = document.createElement('div')
+    let parDate = document.createElement('p')
+    let detailsLink = document.createElement('a')
+    let commentsIcon = document.createElement('i')
+    let likesIcon = document.createElement('i')
+
+    mainDiv.className = "myBlogSlides fade"
+    div.setAttribute('data-id', doc.id)
+    div.classList.add('blog-card')
+    divBlogCardInfo.classList.add("blog-card-info")
+    parDate.textContent = "10 May 2020"
+    headerBlogTitle.textContent = doc.data().title
+    headerBlogTitle.classList.add("blog-card-title")
+    imageTag.setAttribute('src', doc.data().blogImage)
+    divBlogImage.classList.add('blog-card-img')
+    divCardMetaData.classList.add('card-meta-data')
+    commentsIcon.textContent = "40"
+    likesIcon.textContent = "134"
+    commentsIcon.className = "fas fa-comment blog-icon"
+    likesIcon.className = "fas fa-heart blog-icon"
+    blogLoader.style.display = "none"
+    parBlogBody.textContent = doc.data().body
+    parBlogBody.classList.add('blog-body')
+    detailsLink.classList.add("blog-card-btn")
+    detailsLink.setAttribute("href", `./pages/blogdetails.html?id=${doc.id}`)
+    detailsLink.textContent = "Read more"
+    divBlogImage.appendChild(imageTag)
+    divCardMetaData.appendChild(commentsIcon)
+    divCardMetaData.appendChild(likesIcon)
+    divCardMetaData.appendChild(parDate)
+    divBlogCardInfo.appendChild(divCardMetaData)
+    divBlogCardInfo.appendChild(headerBlogTitle)
+    divBlogCardInfo.appendChild(parBlogBody)
+    divBlogCardInfo.appendChild(detailsLink)
+    div.appendChild(divBlogImage)
+    div.appendChild(divBlogCardInfo)
+    mainDiv.appendChild(div)
+    blogList.appendChild(mainDiv)
+    blogArrows.forEach(blogArrow => {
+        blogArrow.style.display = "block"
+    })
+}
+
+// retrieve queries from firebase collections based on authentication
+auth.onAuthStateChanged(user => {
+    // if (user) {
+    //     db.collection('contacts').get().then(snapshot => {
+    //         snapshot.docs.forEach(doc => {
+    //             setContacts(doc)
+    //             showAndHideNavLinks(user);
+    //         })
+
+    //     })
+
+    db.collection('blog-posts').get().then(snapshot => {
+
+            snapshot.docs.forEach(doc => {
+                setBlogs(doc)
+
+            })
+
+        })
+        //    else {
+        //         setContacts([])
+        //     }
+})
+
+
+
+
+
+
+
+
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}
+
+
+// Slides ---blog section
+
+var slideBlogIndex = 1;
+showBlogSlides(slideBlogIndex);
+
+// Next/previous controls
+function plusBlogSlides(n) {
+    showBlogSlides(slideBlogIndex += n);
+}
+
+// Thumbnail image controls
+function currentBlogSlide(n) {
+    showBlogSlides(slideBlogIndex = n);
+}
+
+function showBlogSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("myBlogSlides");
+    if (n > slides.length) { slideBlogIndex = 1 }
+    if (n < 1) { slideBlogIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideBlogIndex - 1].style.display = "block";
 }
