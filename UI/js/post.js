@@ -26,18 +26,29 @@ const blogForm = document.querySelector('#blog-form')
 let submitButton = document.querySelector("button")
 const feedBack = document.querySelector('.feedback')
 const logoutLink = document.querySelector('.logout')
+<<<<<<< HEAD
+=======
+
+// Navbar
+
+
+>>>>>>> d9b0be9... Nav bar on create blog fixed
 window.addEventListener("scroll", () => {
         console.log(window.pageYOffset)
-        if (window.pageYOffset >= 100) {
+        if (window.pageYOffset >= 540) {
             nav.classList.add('change-navbar')
             navLinks.forEach(navLink => {
                 navLink.classList.add('change-nav-links')
+<<<<<<< HEAD
+=======
+                bars.style.color = "white"
+>>>>>>> d9b0be9... Nav bar on create blog fixed
             })
         } else {
             nav.classList.remove('change-navbar')
             navLinks.forEach(navLink => {
                 navLink.classList.remove('change-nav-links')
-
+                bars.style.color = "black"
             })
         }
     })
@@ -77,6 +88,14 @@ bars.addEventListener('click', () => {
 
 
 
+<<<<<<< HEAD
+=======
+})
+
+
+
+
+>>>>>>> d9b0be9... Nav bar on create blog fixed
 // handling contact form data
 blogForm.addEventListener('submit', (e) => {
     e.preventDefault()
