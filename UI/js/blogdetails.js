@@ -84,8 +84,13 @@ const getBlog = (doc) => {
     likeIcon.className = "fas fa-heart"
 
     likeButton.appendChild(likeIcon)
-    blogHeaderDiv.appendChild(editButton)
-    blogHeaderDiv.appendChild(deleteButton)
+
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            blogHeaderDiv.appendChild(editButton)
+            blogHeaderDiv.appendChild(deleteButton)
+        }
+    })
     blogMaintext.appendChild(blogParagraph)
     blogMaintext.appendChild(likeButton)
     singleBlog.appendChild(blogTextDiv)
@@ -96,20 +101,6 @@ const getBlog = (doc) => {
 }
 
 // retrieve queries from firebase collections based on authentication
-auth.onAuthStateChanged(user => {
-    // if (user) {
-    //     db.collection('contacts').get().then(snapshot => {
-    //         snapshot.docs.forEach(doc => {
-    //             setContacts(doc)
-    //             showAndHideNavLinks(user);
-    //         })
-
-    //     })
-
-    //    else {
-    //         setContacts([])
-    //     }
-})
 
 db.collection('blog-posts').doc(postId).get().then(doc => {
         getBlog(doc)
@@ -122,6 +113,20 @@ db.collection('blog-posts').doc(postId).get().then(doc => {
 
 // delete blog 
 deleteButton.addEventListener('click', (e) => {
+    e.stopPropagation()
+    auth.onAuthStateChanged(user => {
+        if (user) {
 
+            // db.collection('blog-posts').doc(postId).delete();
+            console.log('You will be redirected to blog page in 5s')
+            setTimeout(() => {
+                window.location.href = "../index.html#blog-section";
+            }, 5000);
+
+
+        } else {
+            alert("You can't delete this blog")
+        }
+    })
 
 })
