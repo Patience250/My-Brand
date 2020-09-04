@@ -27,7 +27,9 @@ let submitButton = document.querySelector("button")
 const feedBack = document.querySelector('.feedback')
 const logoutLink = document.querySelector('.logout')
 
+
 // Navbar
+
 
 
 window.addEventListener("scroll", () => {
@@ -52,7 +54,6 @@ bars.addEventListener('click', () => {
     navBar.classList.toggle('show-links')
 
 })
-
 
 
 
