@@ -23,29 +23,17 @@
     </ul>
    </nav>
     <div class="blogdetails" id="blogdetails-section">
-     
+       <div class="loader"></div>
          <div class="comments-section">
-           <h1>Comments(1)</h1>
-            <div class="single-comment">
-                <div class="comment-header">
-                 <div class="author">
-                    <h2 class="sender-name">Patience</h2>
-                    <h3 class="sender-email">brownpatience66@gmail.com</h3>
-                </div>
-                <div class="date">
-                <p>20 June 2020</p>
-                </div>
-                </div>
-                    <div class="comment-message">
-                    Commented.Commented.Commented
-                    Commented.Commented.Commented
-                    Commented.Commented.Commented
-                    </div>
-            </div>
+           <h1>Hide comments <a class="blog-button close-comments"> <i class="fas fa-times"></i> <a/></h1>  
+         
                <form class="comment-form">
+             
+                    <h6 class="alert-message">Your comment has been sent</h6>
+                    <h6 class="error-message"></h6>
                 <input type="text" placeholder="Enter name" class="name"/>
                 <input type="text" placeholder="Enter email" class="email"/>
-                <textarea  placeholder="Your comment"></textarea>
+                <textarea  placeholder="Your comment" class="message " ></textarea>
                 <button >Comment</button>
           </form>
          </div>
