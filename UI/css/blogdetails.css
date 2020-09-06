@@ -56,6 +56,11 @@
             padding: 0px 100px 0px;
         }
         
+        .change-blog-header {
+            font-size: 1.2rem;
+            color: #E13729;
+        }
+        
         .blog-button {
             color: white;
             font-size: 15px;
@@ -74,7 +79,7 @@
         }
         
         .delete:hover {
-            color: red;
+            color: #E13729;
         }
         
         img {
@@ -107,7 +112,7 @@
         }
         
         .comments-container h1 {
-            font-size: 3rem;
+            font-size: 2rem;
         }
         
         .single-comment {
@@ -133,10 +138,11 @@
             font-size: 0.8rem;
             color: #2F303a;
             line-height: 24px;
+            text-transform: capitalize;
         }
         
         .sender-name {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin: 0px;
         }
         
@@ -150,10 +156,33 @@
             text-align: justify;
             padding: 20px 30px 20px;
             margin: 50px;
+            display: none;
         }
         
         .contact-form {
             background: transparent;
+        }
+        
+        .alert-message {
+            color: #fff;
+            font-size: 18px;
+            background-color: #79c879;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-transform: initial;
+            display: none;
+            transition: .10s;
+        }
+        
+        .error-message {
+            color: #fff;
+            font-size: 18px;
+            background-color: #E13729;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-transform: initial;
+            display: none;
+            transition: .10s;
         }
         
         .comment-form input,
@@ -172,6 +201,25 @@
             color: #fff;
             cursor: pointer;
             transition: .5s;
+            margin-bottom: 10px;
+        }
+        
+        .comments-section h1 {
+            color: #2F303a;
+            text-transform: capitalize;
+            font-size: 2rem;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 400px;
+        }
+        
+        .change-likes-color {
+            transition: .5s;
+            color: #E13729;
+            cursor: pointer;
+            transition: .5s;
         }
         
         .comment-form button:hover {
@@ -179,9 +227,6 @@
         }
         
         @media only screen and (min-width: 1000px) {
-            .comments-section h1 {
-                color: #2F303a;
-            }
             .blogdetails {
                 width: 100%;
                 height: 100%;
@@ -307,11 +352,29 @@
             .comment-message {
                 line-height: 20px;
             }
+            .blogdetails-text h2 {
+                font-size: 1.5rem;
+                width: 100%;
+            }
         }
         
         @media screen and (max-width: 500px) {
             .single-comment {
-                min-width: 100%
+                min-width: 100%;
+                margin: 0px;
+            }
+            .comment-header {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .comments-section h1 {
+                font-size: 1.5rem;
+                width: 250px;
+            }
+            .blogdetails-text h2 {
+                font-size: 1.2rem;
+                width: 100%;
             }
         }
         
@@ -362,5 +425,41 @@
                 width: 100%;
                 height: 200px;
                 font-size: 1rem;
+            }
+        }
+        /* loader */
+        
+        .loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #1D93EE;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
             }
         }
