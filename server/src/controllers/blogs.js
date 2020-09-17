@@ -10,7 +10,7 @@ exports.createBlog = async(req, res) => {
         res.send({ data: blog })
     } catch (error) {
         console.log(error)
-        res.status(404).send({ error: error.message })
+        res.status(400).send({ error: error.message })
     }
 }
 
@@ -40,7 +40,7 @@ exports.updatedBlog = async(req, res) => {
             await blog.save()
             res.send({ data: blog })
         } catch (error) {
-            res.status(404).send({ error: error.message })
+            res.status(400).send({ error: error.message })
         }
     }
     // Delete a blog

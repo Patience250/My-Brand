@@ -11,7 +11,7 @@ exports.createQuery = async(req, res) => {
         res.send({ data: query })
     } catch (error) {
         console.log(error)
-        res.status(404).send({ error: error.message })
+        res.status(400).send({ error: error.message })
     }
 }
 
