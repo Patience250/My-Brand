@@ -1,13 +1,14 @@
 const express = require("express")
 const Blog = require("../models/Blog")
 const router = express.Router()
+const passport = require("passport")
 const blogController = require('../controllers/blogs')
-
-// route for blog creation
-router.post("", blogController.createBlog);
+const privateRoute = require("../middlewares/privateRoutes")
+    // route for blog creation
+router.post("", privateRoute.hasToken(passport), blogController.createBlog);
 router.get("", blogController.findBlogs);
 router.get("/:id", blogController.findBlog);
-router.patch("/:id", blogController.updatedBlog);
-router.delete("/:id", blogController.deleteBlog);
+router.patch("/:id", privateRoute.hasToken(passport), blogController.updatedBlog);
+router.delete("/:id", privateRoute.hasToken(passport), blogController.deleteBlog);
 
 module.exports = router

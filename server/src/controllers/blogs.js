@@ -1,5 +1,6 @@
 const Blog = require("../models/Blog")
 const { blogValidationSchema } = require("../validators/blogValidations")
+const { cloudinary } = require("../utils/cloudinary")
 let result;
 // creating a blog in mongodb
 exports.createBlog = async(req, res) => {
@@ -16,6 +17,7 @@ exports.createBlog = async(req, res) => {
 
 // Retrieve all blogs
 exports.findBlogs = async(req, res) => {
+    console.log(req.session)
     const blogs = await Blog.find()
     res.send({ data: blogs })
 }
