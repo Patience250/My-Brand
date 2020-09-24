@@ -4,7 +4,8 @@ const router = express.Router()
 const passport = require("passport")
 const blogController = require('../controllers/blogs')
 const privateRoute = require("../middlewares/privateRoutes")
-    // route for blog creation
+
+// route for blog 
 router.post("", privateRoute.hasToken(passport), blogController.createBlog);
 router.get("", blogController.findBlogs);
 router.get("/:id", blogController.findBlog);

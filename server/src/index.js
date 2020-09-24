@@ -9,6 +9,7 @@ const userRouter = require("./routes/users")
 const flash = require("express-flash")
 const session = require("express-session")
 const dotenv = require("dotenv")
+const fileUpload = require("express-fileupload")
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config()
@@ -19,6 +20,10 @@ dotenv.config();
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload({
+    createParentPath: true,
+    useTempFiles: true
+}))
 const MongoStore = require('connect-mongo')(session);
 const dbOptions = {
     useNewUrlParser: true,

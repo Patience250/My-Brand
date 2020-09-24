@@ -60,8 +60,13 @@ exports.loginUser = async(req, res, next) => {
 // get 
 
 exports.getUsers = async(req, res) => {
-    const users = await User.find()
-    return res.send({ data: users })
+    try {
+        const users = await User.find()
+        return res.send({ data: users })
+    } catch (error) {
+        console.log(error)
+        return res.status(404).send({ msg: error.message })
+    }
 
 }
 
@@ -76,6 +81,10 @@ exports.deleteUser = async(req, res) => {
 }
 
 exports.logoutUser = async(req, res) => {
-    req.logout();
-    res.send("Logged out")
+    try {
+        req.logout();
+        res.send("Logged out")
+    } catch (error) {
+        res.status(400).send({ msg: error.message })
+    }
 }

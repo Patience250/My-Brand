@@ -5,7 +5,7 @@ const usersController = require('../controllers/users')
 
 require('../config/passport')(passport)
 const privateRoute = require("../middlewares/privateRoutes")
-    // route for blog creation
+    // route for users
 router.post("/register", usersController.createUser);
 router.post("/login", usersController.loginUser)
 router.get("/", privateRoute.hasToken(passport), usersController.getUsers)
