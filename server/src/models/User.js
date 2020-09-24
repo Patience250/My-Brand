@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    title: String,
-    message: String,
-    image: String,
+    username: String,
+    email: String,
+    password: String,
     dateCreated: { type: Date, default: Date.now }
 
 });
-module.exports = mongoose.model("Blog", schema)
+module.exports = mongoose.model("User", schema)
