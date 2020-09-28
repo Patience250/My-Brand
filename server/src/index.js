@@ -68,3 +68,5 @@ app.use(flash())
 app.listen(serverPort, () => {
     console.log(`Server has started on port ${serverPort}`)
 })
+
+module.exports = app
