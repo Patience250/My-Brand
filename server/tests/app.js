@@ -17,7 +17,7 @@ describe("Users API", () => {
     describe("POST /api/users", () => {
             user = {
                 "username": "Test",
-                "email": "test63@gmail.com",
+                "email": "test64@gmail.com",
                 "password": "1234567890"
             }
             it("It should return 200 status code", (done) => {
@@ -121,17 +121,31 @@ describe("Users API", () => {
     })
 
 
-    // Delete user
+    // Delete user with invalid id
     describe("DELETE /api/users/:id", () => {
         const userId2 = "2324"
         it("It should return 404 status code", (done) => {
-            chai.request(server)
-                .delete(`/api/users/:${userId2}`)
-                .end((error, response) => {
-                    if (error) return done(error)
-                    response.should.have.status(404);
-                    done();
-                })
+                chai.request(server)
+                    .delete(`/api/users/:${userId2}`)
+                    .set("Authorization", token)
+                    .end((error, response) => {
+                        if (error) return done(error)
+                        response.should.have.status(404);
+                        done();
+                    })
+            })
+            // Test deleting user when not authenticated
+        describe("DELETE /api/users/:id", () => {
+            it("It should return 401 status code", (done) => {
+                chai.request(server)
+                    .delete(`/api/users/${userId}`)
+                    .end((error, response) => {
+                        if (error) return done(error)
+                        response.should.have.status(401);
+                        done();
+                    })
+            })
+
         })
 
     })
@@ -161,6 +175,26 @@ describe("Blogs API", () => {
                     })
             })
 
+        })
+        //     // Test POST route-Blogs with wrong image format
+    describe("POST /api/blogs", () => {
+            blog = {
+                "title": "From test, here is the title",
+                "message": "Here is the message, from testing"
+            }
+            it("It should return 400 status code", (done) => {
+                chai.request(server)
+                    .post("/api/blogs")
+                    .set("Authorization", token)
+                    .field(blog)
+                    .attach("image", `${path.join(__dirname,'../../UI/images/test.pdf')}`)
+                    .type("form")
+                    .end((error, response) => {
+                        if (error) return done(error)
+                        response.should.have.status(400);
+                        done();
+                    })
+            })
 
         })
         // Test GET route-Blogs
