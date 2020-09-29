@@ -171,6 +171,7 @@ describe("Blogs API", () => {
                     .type("form")
                     .end((error, response) => {
                         if (error) return done(error)
+                        blogId = response.body.data._id
                         response.should.have.status(200);
                         done();
                     })
@@ -205,7 +206,6 @@ describe("Blogs API", () => {
                     .get("/api/blogs")
                     .end((error, response) => {
                         if (error) return done(error)
-                        blogId = response.body.data[6]._id
                         response.body.should.have.property('data')
                         response.body.should.be.a("object")
                         response.should.have.status(200);
