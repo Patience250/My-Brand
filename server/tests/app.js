@@ -7,6 +7,7 @@ let user = null
 let token = null
 let userId = null
 let blog = null
+let blogId = null
 
 chai.should()
 chai.use(chaiHttp)
