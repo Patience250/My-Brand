@@ -47,7 +47,7 @@ exports.loginUser = async(req, res, next) => {
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) return res.status(400).send({ error: "Invalid credentials" })
         const tokenObject = utils.issueJWT(user);
-        req.headers["Authorization"] = tokenObject.token
+        res.set("Authorization", tokenObject.token)
         res.status(200).json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expires });
         res.end()
     } catch (error) {

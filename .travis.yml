@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 env:
-  - DB_STRING=mongodb://localhost/my-brand-test
+  - DB_STRING=mongodb://localhost/my-brand
 node_js:
   - "stable"
 services:
