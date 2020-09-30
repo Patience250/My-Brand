@@ -10,6 +10,6 @@ router.post("/register", usersController.createUser);
 router.post("/login", usersController.loginUser)
 router.get("/", privateRoute.hasToken(passport), usersController.getUsers)
 router.get("/logout", usersController.logoutUser)
-router.delete("/:id", usersController.deleteUser)
+router.delete("/:id", privateRoute.hasToken(passport), usersController.deleteUser)
 
 module.exports = router
