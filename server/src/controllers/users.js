@@ -6,7 +6,7 @@ const utils = require("../utils/utils")
 
 
 
-const { userValidationSchema } = require("../validators/userValidations")
+const { userValidationSchema, loginValidationScema } = require("../validators/userValidations")
 let result;
 let hashedPassword;
 
@@ -41,7 +41,7 @@ exports.createUser = async(req, res) => {
 // Retrieve all queries
 exports.loginUser = async(req, res, next) => {
     try {
-        result = await userValidationSchema.validateAsync(req.body)
+        result = await loginValidationScema.validateAsync(req.body)
         const user = await User.findOne({ email: req.body.email });
         if (!user) return res.status(400).send({ error: "Invalid credentials" });
         const validPassword = await bcrypt.compare(req.body.password, user.password);
