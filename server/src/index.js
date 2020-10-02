@@ -10,11 +10,18 @@ const flash = require("express-flash")
 const session = require("express-session")
 const dotenv = require("dotenv")
 const fileUpload = require("express-fileupload")
+const swaggerUi = require("swagger-ui-express")
+const swaggerDocument = require("./swagger.json")
+
+
+
+
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config()
 }
 dotenv.config();
+
 
 
 const app = express()
@@ -54,11 +61,12 @@ app.use(session({
 
 require("./config/passport")
 app.use(passport.initialize())
-    // app.use(passport.session())
+
 
 app.use("/api/blogs", blogRouter)
 app.use("/api/queries", queryRouter)
 app.use("/api/users", userRouter)
+app.use("/api/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(flash())
 
 
