@@ -1,0 +1,28 @@
+{
+    "name": "my-brand",
+    "version": "1.0.0",
+    "description": "[![Build Status](https://travis-ci.org/Patience250/My-Brand.svg?branch=develop)](https://travis-ci.org/Patience250/My-Brand)\r [![Coverage Status](https://coveralls.io/repos/github/Patience250/My-Brand/badge.svg?branch=develop)](https://coveralls.io/github/Patience250/My-Brand?branch=develop)",
+    "main": "index.js",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "^2.0.4",
+        "openapi-types": "^7.0.1",
+        "swagger-jsdoc": "^4.2.0",
+        "swagger-ui-express": "^4.1.4"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "postinstall": "npm install --prefix server ",
+        "start": "node server/src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Patience250/My-Brand.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Patience250/My-Brand/issues"
+    },
+    "homepage": "https://github.com/Patience250/My-Brand#readme"
+}

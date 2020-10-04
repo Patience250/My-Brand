@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "node src/index.js",
         "dev": "nodemon -w src src/index.js",
         "test": "mocha 'tests/**/app.js' --timeout 20000 --recursive --exit",
         "coverage": "nyc --reporter=text npm test",
@@ -32,6 +33,13 @@
         "passport-local": "^1.0.0",
         "swagger-jsdoc": "^4.2.0",
         "swagger-ui-express": "^4.1.4"
+    },
+    "engines": {
+        "none": "v13.7.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://dashboard.heroku.com/apps/my-brand-patience"
     },
     "devDependencies": {
         "chai": "^4.2.0",
