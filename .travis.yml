@@ -1,0 +1,20 @@
+dist: xenial
+os: linux
+language: node_js
+env:
+  - DB_STRING=mongodb://localhost/my-brand
+node_js:
+  - "stable"
+services:
+  - mongodb
+cache:
+  npm: false
+notifications:
+  email: false
+script:
+  - cd server/
+  - npm ci
+  - npm test
+  - npm run coverage
+after_success:
+  - npm run coveralls

@@ -23,51 +23,17 @@
     </ul>
    </nav>
     <div class="blogdetails" id="blogdetails-section">
-        <div class="blogdetails-text">
-            <h2>Blog title</h2>
-        </div>
-            <div class="blog-header">
-                <a href="../admin/update.html" class="blog-button edit"> <i class="fas fa-edit"></i> </a>
-                <a class="blog-button delete"> <i class="fas fa-trash"></i> </a>
-            </div>
-         <img src ="../images/blog-image-two.jpg" class="blog-image"> </img>
-         <div class="blog-main-text">
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius reprehenderit sed, asperiores non 
-         facere adipisci aliquam nesciunt culpa. Provident ratione illo reprehenderit autem accusantium in, 
-         numquam delectus sint amet incidunt itaque. Mollitia inventore voluptates vel quae quod veniam. 
-         Aspernatur, nobis!</p>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius reprehenderit sed, asperiores non 
-         facere adipisci aliquam nesciunt culpa. Provident ratione illo reprehenderit autem accusantium in, 
-         numquam delectus sint amet incidunt itaque. Mollitia inventore voluptates vel quae quod veniam. 
-         Aspernatur, nobis!</p>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius reprehenderit sed, asperiores non 
-         facere adipisci aliquam nesciunt culpa. Provident ratione illo reprehenderit autem accusantium in, 
-         numquam delectus sint amet incidunt itaque. Mollitia inventore voluptates vel quae quod veniam. 
-         Aspernatur, nobis!</p>
-         <a class="blog-button like"> <i class="fas fa-heart"></i> </a>
-         </div>
+       <div class="loader"></div>
          <div class="comments-section">
-           <h1>Comments(1)</h1>
-            <div class="single-comment">
-                <div class="comment-header">
-                 <div class="author">
-                    <h2 class="sender-name">Patience</h2>
-                    <h3 class="sender-email">brownpatience66@gmail.com</h3>
-                </div>
-                <div class="date">
-                <p>20 June 2020</p>
-                </div>
-                </div>
-                    <div class="comment-message">
-                    Commented.Commented.Commented
-                    Commented.Commented.Commented
-                    Commented.Commented.Commented
-                    </div>
-            </div>
+           <h1>Hide comments <a class="blog-button close-comments"> <i class="fas fa-times"></i> <a/></h1>  
+         
                <form class="comment-form">
+             
+                    <h6 class="alert-message">Your comment has been sent</h6>
+                    <h6 class="error-message"></h6>
                 <input type="text" placeholder="Enter name" class="name"/>
                 <input type="text" placeholder="Enter email" class="email"/>
-                <textarea  placeholder="Your comment"></textarea>
+                <textarea  placeholder="Your comment" class="message " ></textarea>
                 <button >Comment</button>
           </form>
          </div>
@@ -76,6 +42,11 @@
 
 
 </body>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
 <script src="../js/blogdetails.js">
 
 
