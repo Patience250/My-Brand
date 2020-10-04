@@ -12,7 +12,8 @@
     },
     "devDependencies": {},
     "scripts": {
-        "postinstall": "npm install --prefix server && npm install --prefix frontend-app"
+        "postinstall": "npm install --prefix server && npm install --prefix UI",
+        "start": "nodemon -w server src/index.js"
     },
     "repository": {
         "type": "git",
