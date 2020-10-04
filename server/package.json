@@ -33,6 +33,13 @@
         "swagger-jsdoc": "^4.2.0",
         "swagger-ui-express": "^4.1.4"
     },
+    "engines": {
+        "none": "v13.7.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://dashboard.heroku.com/apps/my-brand-patience"
+    },
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",

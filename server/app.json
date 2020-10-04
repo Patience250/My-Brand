@@ -1,0 +1,13 @@
+{
+    "name": "My brand api",
+    "description": "This serves as an api to my brand app",
+    "repository": "https://github.com/Patience250/My-Brand",
+    "success_url": "/welcome",
+    "env": {
+        "SECRET_TOKEN": {
+            "description": "A secret key for verifying the integrity of signed cookies.",
+            "generator": "some secret"
+        }
+    },
+    "image": "heroku/nodejs"
+}
