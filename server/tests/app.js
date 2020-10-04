@@ -18,7 +18,7 @@ describe("Users API", () => {
     describe("POST /api/users", () => {
             user = {
                 "username": "Test",
-                "email": "test64@gmail.com",
+                "email": "test65@gmail.com",
                 "password": "1234567890"
             }
             it("It should return 200 status code", (done) => {
@@ -38,7 +38,6 @@ describe("Users API", () => {
     describe("POST /api/users/login", () => {
             it("It should return 200 status code", (done) => {
                 const userLoginData = {
-                    "username": `${user.username}`,
                     "email": `${user.email}`,
                     "password": `${user.password}`,
                 }
