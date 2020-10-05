@@ -12,8 +12,8 @@
     },
     "devDependencies": {},
     "scripts": {
-        "postinstall": "npm install --prefix server && npm install --prefix UI",
-        "start": "nodemon -w server src/index.js"
+        "postinstall": "npm install --prefix server ",
+        "start": "node server/src/index.js"
     },
     "repository": {
         "type": "git",

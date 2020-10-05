@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon -w src src/index.js",
+        "start": "node src/index.js",
+        "dev": "nodemon -w src src/index.js",
         "test": "mocha 'tests/**/app.js' --timeout 20000 --recursive --exit",
         "coverage": "nyc --reporter=text npm test",
         "coveralls": "nyc report --reporter=text-lcov | coveralls"
