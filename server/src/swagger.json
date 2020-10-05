@@ -19,6 +19,8 @@
     },
     "servers": [{
         "url": "http://localhost:5000"
+    }, {
+        "url": "https://my-brand-patience.herokuapp.com"
     }],
     "tags": [{
             "name": "blog",
